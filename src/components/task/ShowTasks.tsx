@@ -12,14 +12,14 @@ import TaskContext from '../../store/taskcontext';
 
 const ShowTasks: React.FC = () => {
     const { tasks, clearTasks } = useContext(TaskContext) as taskContext
-    
+
     return (
         <Box
             component="section"
         >
             <Grid container justifyContent="space-between" >
                 <Badge badgeContent={tasks.length} showZero color="primary">
-                    <span>Todos</span>
+                    <span>Tasks</span>
                     <TaskIcon />
                 </Badge>
                 <Button 
