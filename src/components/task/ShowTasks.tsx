@@ -11,7 +11,7 @@ import { taskContext } from '../../lib/taskContext';
 import TaskContext from '../../store/taskcontext';
 
 const ShowTasks: React.FC = () => {
-    const { tasks } = useContext(TaskContext) as taskContext
+    const { tasks, clearTasks } = useContext(TaskContext) as taskContext
     
     return (
         <Box
@@ -28,6 +28,7 @@ const ShowTasks: React.FC = () => {
                     variant="contained"
                     size='small' 
                     startIcon={<ClearAll />}
+                    onClick={clearTasks}
                 >
                     Clear All
                 </Button>
