@@ -5,14 +5,16 @@ import { taskContext } from "../lib/taskContext";
 const TaskContext = createContext<taskContext | null>(null)
 
 export const TaskContextProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
-    const [taskList, setTaskList] = useState<ITask[]>([])
+    const [taskList, setTaskList] = useState<ITask[]>(JSON.parse(localStorage.getItem("taskList") || '""') || [])
 
     const addTaskHandler = (task: ITask) => {
         setTaskList((prevState)=> {
-            return [
+            const updatedTasks = [
                 task,
                 ...prevState
-            ]
+            ];
+            localStorage.setItem("taskList", JSON.stringify(updatedTasks))
+            return updatedTasks
         })
     }
 
@@ -20,6 +22,7 @@ export const TaskContextProvider: React.FC<{children: React.ReactNode}> = ({ chi
         setTaskList((prevState)=> {
             const updatedTasks = prevState.map( task => (task.id === id ? 
                 { id, title: newTitle, date: new Date().toLocaleDateString() } : task))
+            localStorage.setItem("taskList", JSON.stringify(updatedTasks))
             return updatedTasks
         })
     }
@@ -27,12 +30,14 @@ export const TaskContextProvider: React.FC<{children: React.ReactNode}> = ({ chi
     const deleteTaskHandler = (id: string) => {
         setTaskList((prevState)=> {
             const updatedTasks = prevState.filter(task => task.id !== id)
+            localStorage.setItem("taskList", JSON.stringify(updatedTasks))
             return updatedTasks
         })
     }
 
     const clearTasksHandler = () => {
         setTaskList([])
+        localStorage.removeItem("taskList")
     }
 
     const context : taskContext = {
