@@ -14,11 +14,12 @@ const AddTask: React.FC = () => {
     const { addTask } = useContext(TaskContext) as taskContext
     const [errors, setErrors] = useState<string[]>([])
     const titleRef = useRef<HTMLInputElement>(null)
-    
+
     const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         const title = titleRef.current?.value
 
+        console.log(title)
         const errorList = []
 
         if (title === undefined || title?.trim() === "") {
@@ -27,12 +28,17 @@ const AddTask: React.FC = () => {
 
         if (errorList.length > 0) {
             setErrors(errorList)
+            return
         }
+
+        setErrors([])
         addTask({
             id : uuidv7().toString(),
             title: title || "",
             date :  new Date().toDateString()
         })
+        event.currentTarget.reset()
+        // titleRef.current?.value = ""
     }
     return (
         <section>
@@ -55,7 +61,7 @@ const AddTask: React.FC = () => {
                             label="task" 
                             variant="outlined" 
                             required
-                            ref={titleRef}
+                            inputRef={titleRef}
                         />
                         <Button type='submit' color="success" variant="contained" startIcon={<AddCircle />}>
                             Add task
@@ -65,7 +71,15 @@ const AddTask: React.FC = () => {
             </Box>
             {errors.length > 0 && (
                 errors.map(error =>(
-                    <Alert key={error} severity="error">{error}</Alert>
+                    <Alert
+                        onClose={() => setErrors([])} 
+                        sx={{ mb: 3 }} 
+                        key={error} 
+                        variant="outlined" 
+                        severity="error"
+                    >
+                        {error}
+                    </Alert>
                 ))
             )}
         </section>
