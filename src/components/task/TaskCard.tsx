@@ -6,21 +6,26 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import EditDocumentIcon from '@mui/icons-material/EditDocument';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import Task from '../../lib/task';
 
-const TaskCard = () => {
-    const date = new Date();
+type Props = {
+    task: Task
+};
+
+const TaskCard = ({ task } : Props) => {
+    const date = new Date(task.date);
 
     return (
-        <Card sx={{ minWidth: 275 }}>
+        <Card raised sx={{ minWidth: 250, m: 1 }}>
         <CardContent>
-            <Typography gutterBottom sx={{ fontSize: 14 }}>
-                Word of the Day
+            <Typography variant="h5" gutterBottom>
+                {task.title}
             </Typography>
             <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
                 <time>{date.toLocaleDateString()}</time>
             </Typography>
         </CardContent>
-        <CardActions>
+        <CardActions sx={{ mt: -4 }}>
             <IconButton aria-label="edit task">
             <EditDocumentIcon color="secondary" />
             </IconButton>
