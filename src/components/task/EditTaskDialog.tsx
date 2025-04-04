@@ -15,7 +15,7 @@ type Props = {
     closeEdit: () => void
 };
 
-const EditDialog: React.FC<Props> = ({ taskToEdit, open, closeEdit } : Props) => {
+const EditTaskDialog: React.FC<Props> = ({ taskToEdit, open, closeEdit } : Props) => {
     const { editTask } = useContext(TaskContext) as taskContext
 
     const handleClose = () => {
@@ -57,12 +57,12 @@ const EditDialog: React.FC<Props> = ({ taskToEdit, open, closeEdit } : Props) =>
             />
             </DialogContent>
             <DialogActions>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button type="submit">Save</Button>
+                <Button onClick={handleClose}>Cancel</Button>
+                <Button type="submit">Save</Button>
             </DialogActions>
         </Dialog>
         </>
     );
 }
 
-export default EditDialog
+export default EditTaskDialog

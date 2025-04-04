@@ -10,7 +10,8 @@ import ITask from '../../lib/task';
 import { useContext, useState } from 'react';
 import { taskContext } from '../../lib/taskContext';
 import TaskContext from '../../store/taskcontext';
-import EditDialog from './UpdateTask';
+import EditTaskDialog from './UpdateTask';
+import DeleteTaskDialog from './DeleteTaskDialog';
 
 type Props = {
     task: ITask
@@ -20,6 +21,7 @@ const TaskCard: React.FC<Props> = ({ task } : Props) => {
     const date = new Date(task.date);
     const { deleteTask } = useContext(TaskContext) as taskContext
     const [openEdit, setOpenEdit] = useState(false);
+    const [openDelete, setOpenDelete] = useState(false);
     
     const handleClickOpenEdit = () => {
         setOpenEdit(true);
@@ -27,6 +29,14 @@ const TaskCard: React.FC<Props> = ({ task } : Props) => {
     
     const handleCloseEdit = () => {
         setOpenEdit(false);
+    };
+    
+    const handleClickOpenDelete = () => {
+        setOpenDelete(true);
+    };
+    
+    const handleCloseDelete = () => {
+        setOpenDelete(false);
     };
 
     return (
@@ -44,16 +54,17 @@ const TaskCard: React.FC<Props> = ({ task } : Props) => {
                     <IconButton aria-label="edit task" onClick={handleClickOpenEdit}>
                         <EditDocumentIcon color="secondary" />
                     </IconButton>
-                    <IconButton aria-label="delete task" onClick={() => deleteTask(task.id)}>
+                    <IconButton aria-label="delete task" onClick={handleClickOpenDelete}>
                         <DeleteForeverIcon color="error" />
                     </IconButton>
                 </CardActions>
             </Card>
-            <EditDialog 
+            <EditTaskDialog 
                 open={openEdit} 
                 closeEdit={handleCloseEdit} 
                 taskToEdit={task}
             />
+            <DeleteTaskDialog open={openDelete} closeDelete={handleCloseDelete} id={task.id} />
         </>
     )
 }
