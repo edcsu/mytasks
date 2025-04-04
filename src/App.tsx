@@ -1,14 +1,16 @@
 import './App.css'
 import Container from '@mui/material/Container';
 import Header from './components/Header';
-import Addtask from './components/task/Addtask';
+import AddTask from './components/task/Addtask';
+import ShowTasks from './components/task/ShowTasks';
 function App() {
 
   return (
     <>
       <Header />
       <Container maxWidth="sm">
-        <Addtask />
+        <AddTask />
+        <ShowTasks />
       </Container>
     </>
   )

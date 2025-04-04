@@ -5,7 +5,7 @@ import AddCircle from '@mui/icons-material/AddCircle';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 
-const Addtask = () => {
+const AddTask = () => {
   return (
     <section>
         <Box
@@ -36,4 +36,4 @@ const Addtask = () => {
   )
 }
 
-export default Addtask
+export default AddTask
