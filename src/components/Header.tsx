@@ -6,7 +6,6 @@ import Avatar from '@mui/material/Avatar';
 import Logo from "../assets/logo.png"
 
 function Header() {
-
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
