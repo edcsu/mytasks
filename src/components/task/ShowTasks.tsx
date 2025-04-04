@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid';
 import Badge from '@mui/material/Badge';
 import TaskIcon from '@mui/icons-material/Task';
 import Divider from '@mui/material/Divider';
+import TaskCard from './TaskCard';
 
 const ShowTasks = () => {
   return (
@@ -32,7 +33,9 @@ const ShowTasks = () => {
                 m : 2
             }}
         />
-
+        <Grid container justifyContent="space-between" >
+            <TaskCard />
+        </Grid>
     </Box>
   )
 }
