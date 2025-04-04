@@ -5,7 +5,7 @@ import ShowTasks from './components/task/ShowTasks';
 import AddTask from './components/task/AddTask';
 import { TaskContextProvider } from './store/taskcontext';
 
-function App() {
+const App: React.FC = () => {
 
   return (
     <TaskContextProvider>

@@ -1,13 +1,13 @@
 import { createContext, useState } from "react";
-import Task from "../lib/task";
-import { taskContext } from "../lib/taskContext.1";
+import ITask from "../lib/task";
+import { taskContext } from "../lib/taskContext";
 
 const TaskContext = createContext<taskContext | null>(null)
 
 export const TaskContextProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
-    const [taskList, setTaskList] = useState<Task[]>([])
+    const [taskList, setTaskList] = useState<ITask[]>([])
 
-    const addTaskHandler = (task: Task) => {
+    const addTaskHandler = (task: ITask) => {
         setTaskList((prevState)=> {
             return [
                 task,

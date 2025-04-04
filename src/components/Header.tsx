@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Logo from "../assets/logo.png"
 
-function Header() {
+const Header: React.FC = () => {
   return (
     <AppBar position="static">
       <Container maxWidth="xl">

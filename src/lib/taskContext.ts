@@ -1,9 +1,8 @@
-import Task from "./task";
-
+import ITask from "./task";
 
 export type taskContext = {
-    tasks: Task[];
-    addTask: (task: Task) => void;
+    tasks: ITask[];
+    addTask: (task: ITask) => void;
     editTask: (id: string, newTitle: string) => void;
     deleteTask: (id: string) => void;
     clearTasks: () => void;

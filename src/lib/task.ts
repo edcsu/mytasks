@@ -1,4 +1,4 @@
-export default interface Task {
+export default interface ITask {
     id: string;
     title: string;
     date: string;

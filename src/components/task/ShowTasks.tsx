@@ -6,9 +6,9 @@ import Badge from '@mui/material/Badge';
 import TaskIcon from '@mui/icons-material/Task';
 import Divider from '@mui/material/Divider';
 import TaskCard from './TaskCard';
-import Task from '../../lib/task'
+import ITask from '../../lib/task'
 
-const tasks: Task[] = [
+const tasks: ITask[] = [
     {
         "id": "e618495b-ac2d-4168-a7c5-ff8575d3de94",
         "title": "Learn React",
@@ -31,7 +31,7 @@ const tasks: Task[] = [
     },
 ]
 
-const ShowTasks = () => {
+const ShowTasks: React.FC = () => {
     
     return (
         <Box

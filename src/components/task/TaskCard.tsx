@@ -6,13 +6,13 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import EditDocumentIcon from '@mui/icons-material/EditDocument';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import Task from '../../lib/task';
+import ITask from '../../lib/task';
 
 type Props = {
-    task: Task
+    task: ITask
 };
 
-const TaskCard = ({ task } : Props) => {
+const TaskCard: React.FC<Props> = ({ task } : Props) => {
     const date = new Date(task.date);
 
     return (
