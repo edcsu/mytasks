@@ -19,10 +19,9 @@ const AddTask: React.FC = () => {
         event.preventDefault()
         const title = titleRef.current?.value
 
-        console.log(title)
         const errorList = []
 
-        if (title === undefined || title?.trim() === "") {
+        if (title === null || title === undefined || title?.trim() === "") {
             errorList.push("Task title is missing")    
         }
 
@@ -38,7 +37,6 @@ const AddTask: React.FC = () => {
             date :  new Date().toDateString()
         })
         event.currentTarget.reset()
-        // titleRef.current?.value = ""
     }
     return (
         <section>

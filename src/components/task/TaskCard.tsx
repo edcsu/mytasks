@@ -7,6 +7,9 @@ import Typography from '@mui/material/Typography';
 import EditDocumentIcon from '@mui/icons-material/EditDocument';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ITask from '../../lib/task';
+import { useContext } from 'react';
+import { taskContext } from '../../lib/taskContext';
+import TaskContext from '../../store/taskcontext';
 
 type Props = {
     task: ITask
@@ -14,6 +17,7 @@ type Props = {
 
 const TaskCard: React.FC<Props> = ({ task } : Props) => {
     const date = new Date(task.date);
+    const { deleteTask } = useContext(TaskContext) as taskContext
 
     return (
         <Card raised sx={{ minWidth: 250, m: 1 }}>
@@ -27,10 +31,10 @@ const TaskCard: React.FC<Props> = ({ task } : Props) => {
         </CardContent>
         <CardActions sx={{ mt: -4 }}>
             <IconButton aria-label="edit task">
-            <EditDocumentIcon color="secondary" />
+                <EditDocumentIcon color="secondary" />
             </IconButton>
-            <IconButton aria-label="delete task">
-            <DeleteForeverIcon color="error" />
+            <IconButton aria-label="delete task" onClick={() => deleteTask(task.id)}>
+                <DeleteForeverIcon color="error" />
             </IconButton>
         </CardActions>
         </Card>
