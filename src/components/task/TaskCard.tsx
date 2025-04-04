@@ -7,10 +7,8 @@ import Typography from '@mui/material/Typography';
 import EditDocumentIcon from '@mui/icons-material/EditDocument';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ITask from '../../lib/task';
-import { useContext, useState } from 'react';
-import { taskContext } from '../../lib/taskContext';
-import TaskContext from '../../store/taskcontext';
-import EditTaskDialog from './UpdateTask';
+import { useState } from 'react';
+import EditTaskDialog from './EditTaskDialog';
 import DeleteTaskDialog from './DeleteTaskDialog';
 
 type Props = {
@@ -19,7 +17,6 @@ type Props = {
 
 const TaskCard: React.FC<Props> = ({ task } : Props) => {
     const date = new Date(task.date);
-    const { deleteTask } = useContext(TaskContext) as taskContext
     const [openEdit, setOpenEdit] = useState(false);
     const [openDelete, setOpenDelete] = useState(false);
     
