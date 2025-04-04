@@ -6,13 +6,22 @@ import Badge from '@mui/material/Badge';
 import TaskIcon from '@mui/icons-material/Task';
 import Divider from '@mui/material/Divider';
 import TaskCard from './TaskCard';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { taskContext } from '../../lib/taskContext';
 import TaskContext from '../../store/taskcontext';
+import ClearTasksDialog from './ClearTasksDialog';
 
 const ShowTasks: React.FC = () => {
-    const { tasks, clearTasks } = useContext(TaskContext) as taskContext
+    const { tasks } = useContext(TaskContext) as taskContext
+    const [openClear, setOpenClear] = useState(false);
 
+    const handleClickOpenClear = () => {
+        setOpenClear(true);
+    };
+    
+    const handleCloseClear = () => {
+        setOpenClear(false);
+    };
     return (
         <Box
             component="section"
@@ -22,13 +31,14 @@ const ShowTasks: React.FC = () => {
                     <span>Tasks</span>
                     <TaskIcon />
                 </Badge>
-                <Button 
+                <Button
+                    disabled={tasks.length < 1 ? true : false} 
                     type='submit' 
                     color="secondary" 
                     variant="contained"
                     size='small' 
                     startIcon={<ClearAll />}
-                    onClick={clearTasks}
+                    onClick={handleClickOpenClear}
                 >
                     Clear All
                 </Button>
@@ -42,6 +52,7 @@ const ShowTasks: React.FC = () => {
             <Grid container justifyContent="space-between" >
                {tasks.map(task => ( <TaskCard key={task.id} task={task} />))}
             </Grid>
+            <ClearTasksDialog open={openClear} closeClear={handleCloseClear}  />
         </Box>
     )
 }
