@@ -14,6 +14,7 @@ const AddTask: React.FC = () => {
     const { addTask } = useContext(TaskContext) as taskContext
     const [errors, setErrors] = useState<string[]>([])
     const titleRef = useRef<HTMLInputElement>(null)
+    
     const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         const title = titleRef.current?.value

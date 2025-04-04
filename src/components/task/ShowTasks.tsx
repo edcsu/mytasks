@@ -6,39 +6,19 @@ import Badge from '@mui/material/Badge';
 import TaskIcon from '@mui/icons-material/Task';
 import Divider from '@mui/material/Divider';
 import TaskCard from './TaskCard';
-import ITask from '../../lib/task'
-
-const tasks: ITask[] = [
-    {
-        "id": "e618495b-ac2d-4168-a7c5-ff8575d3de94",
-        "title": "Learn React",
-        "date": "2025-04-01"
-    },
-    {
-        "id": "36a9cd9f-f341-4295-b5ee-ab8d9f00db77",
-        "title": "Learn Next JS",
-        "date": "2025-04-02"
-    },
-    {
-        "id": "60396964-8875-41ab-af85-b437ddb46758",
-        "title": "Learn Framer motion",
-        "date": "2025-04-03"
-    },
-    {
-        "id": "8e0af663-c2f6-4ad6-9b37-5ea4e3ebfc1b",
-        "title": "Learn React router",
-        "date": "2025-04-04"
-    },
-]
+import { useContext } from 'react';
+import { taskContext } from '../../lib/taskContext';
+import TaskContext from '../../store/taskcontext';
 
 const ShowTasks: React.FC = () => {
+    const { tasks } = useContext(TaskContext) as taskContext
     
     return (
         <Box
             component="section"
         >
             <Grid container justifyContent="space-between" >
-                <Badge badgeContent={4} color="primary">
+                <Badge badgeContent={tasks.length} showZero color="primary">
                     <span>Todos</span>
                     <TaskIcon />
                 </Badge>
