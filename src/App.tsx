@@ -2,10 +2,11 @@ import './App.css'
 import Container from '@mui/material/Container';
 import Header from './components/Header';
 import ShowTasks from './components/task/ShowTasks';
-import AddTask from './components/task/AddTask';
 import { TaskContextProvider } from './store/taskcontext';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import { useState } from 'react';
+import AddTaskForm from './components/task/AddTaskForm';
+import Footer from './components/Footer';
 
 const App: React.FC = () => {
   // state to manage the dark mode
@@ -29,9 +30,10 @@ const App: React.FC = () => {
         <CssBaseline />
         <Header isDark={toggleDarkMode} toggleTheme={toggleTheme} />
         <Container maxWidth="sm">
-          <AddTask />
+          <AddTaskForm />
           <ShowTasks />
         </Container>
+        <Footer />
       </ThemeProvider>
     </TaskContextProvider>
   )

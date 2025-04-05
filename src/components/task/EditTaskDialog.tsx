@@ -28,11 +28,13 @@ const EditTaskDialog: React.FC<Props> = ({ taskToEdit, open, closeEdit } : Props
     const handleEditsubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
-        const formJson = Object.fromEntries((formData as any).entries());
-        const title = formJson.task;
+        const formJson = Object.fromEntries((formData).entries());
+        let title = formJson.task;
+        title = title as string
+        title = title.trim()
         const errorList = [];
 
-        if (title === null || title === undefined || title.trim() === "") {
+        if (title === null || title === undefined || title === "") {
             errorList.push("Task title is missing");
         }
 
