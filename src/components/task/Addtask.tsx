@@ -10,7 +10,7 @@ import TaskContext from '../../store/taskcontext';
 import { taskContext } from '../../lib/taskContext';
 import { v7 as uuidv7 } from 'uuid';
 
-const AddTask: React.FC = () => {
+const AddTask = () => {
     const { addTask } = useContext(TaskContext) as taskContext
     const [errors, setErrors] = useState<string[]>([])
     const titleRef = useRef<HTMLInputElement>(null)

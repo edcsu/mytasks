@@ -11,7 +11,7 @@ import { taskContext } from '../../lib/taskContext';
 import TaskContext from '../../store/taskcontext';
 import ClearTasksDialog from './ClearTasksDialog';
 
-const ShowTasks: React.FC = () => {
+const ShowTasks = () => {
     const { tasks } = useContext(TaskContext) as taskContext
     const [openClear, setOpenClear] = useState(false);
 
