@@ -2,10 +2,10 @@ import './App.css'
 import Container from '@mui/material/Container';
 import Header from './components/Header';
 import ShowTasks from './components/task/ShowTasks';
-import AddTask from './components/task/AddTask';
 import { TaskContextProvider } from './store/taskcontext';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import { useState } from 'react';
+import AddTask from './components/task/AddTask';
 
 const App: React.FC = () => {
   // state to manage the dark mode
