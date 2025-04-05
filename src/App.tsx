@@ -6,6 +6,7 @@ import { TaskContextProvider } from './store/taskcontext';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import { useState } from 'react';
 import AddTaskForm from './components/task/AddTaskForm';
+import Footer from './components/Footer';
 
 const App: React.FC = () => {
   // state to manage the dark mode
@@ -32,6 +33,7 @@ const App: React.FC = () => {
           <AddTaskForm />
           <ShowTasks />
         </Container>
+        <Footer />
       </ThemeProvider>
     </TaskContextProvider>
   )
