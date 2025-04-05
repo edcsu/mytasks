@@ -7,7 +7,7 @@ import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import { useState } from 'react';
 import AddTask from './components/task/AddTask';
 
-const App: React.FC = () => {
+const App = () => {
   // state to manage the dark mode
   const [toggleDarkMode, setToggleDarkMode] = useState(false);
 
