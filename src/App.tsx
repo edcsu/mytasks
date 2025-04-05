@@ -5,7 +5,7 @@ import ShowTasks from './components/task/ShowTasks';
 import { TaskContextProvider } from './store/taskcontext';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import { useState } from 'react';
-import AddTask from './components/task/AddTask';
+import AddTaskForm from './components/task/AddTaskForm';
 
 const App = () => {
   // state to manage the dark mode
@@ -29,7 +29,7 @@ const App = () => {
         <CssBaseline />
         <Header isDark={toggleDarkMode} toggleTheme={toggleTheme} />
         <Container maxWidth="sm">
-          <AddTask />
+          <AddTaskForm />
           <ShowTasks />
         </Container>
       </ThemeProvider>
