@@ -2,17 +2,10 @@ import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import ClearTasksDialog from '../ClearTasksDialog';
 import TaskContext from '../../../store/taskcontext';
+import testTaskContext from './testtaskcontext';
 
 describe('ClearTasksDialog', () => {
     const mockCloseClear = vi.fn();
-
-    const testTaskContext = {
-        tasks: [],
-        addTask: vi.fn(),
-        deleteTask: vi.fn(),
-        clearTasks: vi.fn(),
-        editTask: vi.fn(),
-    };
 
     const wrapper = ({ open = false }) => {
         return (

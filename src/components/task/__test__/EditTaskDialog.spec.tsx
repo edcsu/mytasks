@@ -3,10 +3,10 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import EditTaskDialog from '../EditTaskDialog';
 import TaskContext from '../../../store/taskcontext';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import testTaskContext from './testtaskcontext';
 
 describe('EditTaskDialog', () => {
     const theme = createTheme();
-    const mockEditTask = vi.fn();
     const mockCloseEdit = vi.fn();
     const sampleTask = {
         id: '1',
@@ -21,13 +21,7 @@ describe('EditTaskDialog', () => {
         closeEdit: mockCloseEdit
     };
 
-    const testTaskContext = {
-        editTask: mockEditTask,
-        tasks: [],
-        addTask: vi.fn(),
-        deleteTask: vi.fn(),
-        clearTasks: vi.fn()
-    };
+    
 
     const renderDialog = (props = defaultProps) => {
         
@@ -57,7 +51,7 @@ describe('EditTaskDialog', () => {
         fireEvent.change(input, { target: { value: 'Updated Task' } });
         fireEvent.click(submitButton);
 
-        expect(mockEditTask).toHaveBeenCalledWith('1', 'Updated Task');
+        expect(testTaskContext.editTask).toHaveBeenCalledWith('1', 'Updated Task');
         expect(mockCloseEdit).toHaveBeenCalled();
     });
 
