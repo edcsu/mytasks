@@ -29,7 +29,7 @@ const App: React.FC = () => {
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         <Header isDark={toggleDarkMode} toggleTheme={toggleTheme} />
-        <Container maxWidth="sm">
+        <Container component="main" maxWidth="sm">
           <AddTaskForm />
           <ShowTasks />
         </Container>

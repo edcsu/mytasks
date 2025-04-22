@@ -42,6 +42,7 @@ const AddTaskForm: React.FC = () => {
         <section>
             <Box
                 component="form"
+                role='form'
                 sx={{
                     display: 'flex',
                     flexWrap: 'wrap', 
