@@ -13,7 +13,12 @@ const Copyright = () => {
   return (
     <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
       {'Copyright © '}
-      <Link color="text.secondary" href="https://mui.com/">
+      <Link 
+        color="text.secondary" 
+        href="https://www.linkedin.com/in/ssewannonda-keith-edwin-443303129"
+        rel="noreferrer noopener"
+        target="_blank"
+      >
         Keith
       </Link>
       &nbsp;
@@ -25,6 +30,7 @@ const Copyright = () => {
 const Footer = () => {
   return (
     <Container
+      role="contentinfo"
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -60,6 +66,8 @@ const Footer = () => {
             color="inherit"
             size="small"
             href="https://github.com/edcsu"
+            rel="noreferrer noopener"
+            target="_blank"
             aria-label="GitHub"
             sx={{ alignSelf: 'center' }}
           >
@@ -69,6 +77,8 @@ const Footer = () => {
             color="inherit"
             size="small"
             href="https://x.com/skeith696"
+            rel="noreferrer noopener"
+            target="_blank"
             aria-label="X"
             sx={{ alignSelf: 'center' }}
           >
@@ -78,6 +88,8 @@ const Footer = () => {
             color="inherit"
             size="small"
             href="https://www.linkedin.com/in/ssewannonda-keith-edwin-443303129"
+            rel="noreferrer noopener"
+            target="_blank"
             aria-label="LinkedIn"
             sx={{ alignSelf: 'center' }}
           >
@@ -88,6 +100,8 @@ const Footer = () => {
             size="small"
             href="mailto:skeith696@gmail.com"
             aria-label="email"
+            rel="noreferrer noopener"
+            target="_blank"
             sx={{ alignSelf: 'center' }}
           >
             <EmailIcon />

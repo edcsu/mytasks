@@ -64,6 +64,7 @@ const Header: React.FC<Props> = ({ isDark, toggleTheme } : Props)=> {
                 mytasks
             </Typography>
             <Switch
+                name='Toggle theme'
                 color="secondary" 
                 value={isDark}
                 onChange={toggleTheme}
