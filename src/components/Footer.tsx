@@ -30,6 +30,7 @@ const Copyright = () => {
 const Footer = () => {
   return (
     <Container
+      role="contentinfo"
       sx={{
         display: 'flex',
         flexDirection: 'column',
